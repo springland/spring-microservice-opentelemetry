@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: catalog-service
+
+
+server:
+  port: 8090
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # 原型环境先全量采样
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: cart-service
+
+server:
+  port: 8080
+
+catalog-service-base-url: http://localhost:8090
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # 原型环境先全量采样
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
