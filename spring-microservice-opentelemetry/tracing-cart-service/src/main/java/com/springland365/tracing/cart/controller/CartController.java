@@ -1,5 +1,6 @@
 package com.springland365.tracing.cart.controller;
 
+import com.springland365.tracing.cart.service.CartService;
 import com.springland365.tracing.common.dto.Product;
 import io.micrometer.observation.annotation.Observed;
 import lombok.RequiredArgsConstructor;
@@ -19,33 +20,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class CartController
 {
 
-    @Value("${catalog-service-base-url}")
-    String catalogServiceBaseUrl;
 
-    protected final WebClient webClient ;
+    protected final CartService  cartService;
     @PostMapping("/add/{id}")
     public Product addItem(@PathVariable(name = "id")  Long  id){
 
         log.info(" add product {}" , id);
-        Product product = getProduct(id);
-        return product ;
-
+        return cartService.addItem(id);
     }
 
-    protected Product getProduct(Long id){
-        log.info(" get product {}" , id);
-        Product product = webClient.get()
-                .uri(catalogServiceBaseUrl+"/v1/products/"+id)
-                .retrieve()
-                .bodyToMono(Product.class)
-                .block();
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            log.error(e.getMessage() , e);
-        }
-        return product ;
-
-    }
 }
