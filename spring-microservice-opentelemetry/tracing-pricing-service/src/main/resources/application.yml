@@ -1,0 +1,24 @@
+otlp-server-url: http://localhost:4318
+
+otel:
+  logs:
+    exporter: none
+spring:
+  application:
+    name: pricing-service
+
+
+server:
+  port: 8070
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # 原型环境先全量采样
+  otlp:
+    tracing:
+      endpoint: ${otlp-server-url}/v1/traces
+
+    metrics:
+      export:
+        url: ${otlp-server-url}/v1/metrics

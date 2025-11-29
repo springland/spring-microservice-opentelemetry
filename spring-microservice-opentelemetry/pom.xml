@@ -16,6 +16,7 @@
         <module>tracing-catalog-service</module>
         <module>tracing-cart-service</module>
         <module>tracing-common</module>
+        <module>tracing-pricing-service</module>
     </modules>
 
     <dependencyManagement>
