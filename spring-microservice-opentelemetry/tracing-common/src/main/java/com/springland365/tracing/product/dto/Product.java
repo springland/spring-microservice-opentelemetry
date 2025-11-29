@@ -1,4 +1,4 @@
-package com.springland365.tracing.common.dto;
+package com.springland365.tracing.product.dto;
 
 import lombok.*;
 

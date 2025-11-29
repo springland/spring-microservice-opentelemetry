@@ -1,6 +1,6 @@
-package com.springland365.tracing.catalog.controller;
+package com.springland365.tracing.product.controller;
 
-import com.springland365.tracing.common.dto.Product;
+import com.springland365.tracing.product.dto.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

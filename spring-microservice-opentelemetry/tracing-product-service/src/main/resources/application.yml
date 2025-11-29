@@ -5,7 +5,7 @@ otel:
     exporter: none
 spring:
   application:
-    name: catalog-service
+    name: product-service
 
 
 server:
