@@ -1,3 +1,8 @@
+otlp-url: http://localhost:4318
+
+otel:
+  logs:
+    exporter: none
 spring:
   application:
     name: catalog-service
@@ -12,4 +17,8 @@ management:
       probability: 1.0   # 原型环境先全量采样
   otlp:
     tracing:
-      endpoint: http://localhost:4318/v1/traces
+      endpoint: ${otlp-url}/v1/traces
+
+    metrics:
+      export:
+        url: ${otlp-url}/v1/metrics
