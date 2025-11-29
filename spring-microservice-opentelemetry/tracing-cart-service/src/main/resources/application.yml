@@ -1,4 +1,4 @@
-otlp-url: http://localhost:4318
+otlp-server-url: http://localhost:4318
 
 otel:
   logs:
@@ -21,10 +21,10 @@ management:
 
   otlp:
     tracing:
-      endpoint: ${otlp-url}/v1/traces
+      endpoint: ${otlp-server-url}/v1/traces
 
     metrics:
       export:
-        url: ${otlp-url}/v1/metrics
+        url: ${otlp-server-url}/v1/metrics
 
 
