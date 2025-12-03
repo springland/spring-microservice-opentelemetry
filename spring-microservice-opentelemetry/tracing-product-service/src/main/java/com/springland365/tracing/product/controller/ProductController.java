@@ -18,7 +18,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product  findById(@PathVariable(name="id")  Long id){
 
-        log.info(" find product by id {}" , id);
+        log.info("test");
         return  Product.builder()
                         .id(id)
                         .name("dummy")

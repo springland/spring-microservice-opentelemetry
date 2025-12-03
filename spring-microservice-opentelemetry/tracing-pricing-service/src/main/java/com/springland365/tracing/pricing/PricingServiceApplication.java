@@ -1,4 +1,4 @@
-package com.springland365.tracing.pricing.controller;
+package com.springland365.tracing.pricing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
