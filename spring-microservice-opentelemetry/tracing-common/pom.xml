@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>microservices-opentelemetry-demo-common</artifactId>
+    <artifactId>tracing-common</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

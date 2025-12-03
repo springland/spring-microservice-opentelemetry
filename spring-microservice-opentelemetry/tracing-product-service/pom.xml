@@ -17,7 +17,7 @@
 
         <dependency>
             <groupId>com.springland365</groupId>
-            <artifactId>microservices-opentelemetry-demo-common</artifactId>
+            <artifactId>tracing-common</artifactId>
 
         </dependency>
 

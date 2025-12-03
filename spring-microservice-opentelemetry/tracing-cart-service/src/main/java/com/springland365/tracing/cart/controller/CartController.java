@@ -1,7 +1,7 @@
 package com.springland365.tracing.cart.controller;
 
 import com.springland365.tracing.cart.service.CartService;
-import com.springland365.tracing.product.dto.Product;
+import com.springland365.tracing.dto.product.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;

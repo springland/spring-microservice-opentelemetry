@@ -1,6 +1,6 @@
 package com.springland365.tracing.cart.service;
 
-import com.springland365.tracing.product.dto.Product;
+import com.springland365.tracing.dto.product.Product;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.annotation.Observed;
