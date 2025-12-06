@@ -1,0 +1,66 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-person-table
+      author: springland
+      changes:
+        - createTable:
+            tableName: tbl_product
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: sku
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+
+      rollback:
+        - dropTable:
+            tableName: tbl_product
+
+  - changeSet:
+      id: insert-product-data
+      author: springland
+      changes:
+        - insert:
+            tableName: tbl_product
+            columns:
+              - column:
+                  name: sku
+                  value: "CW001"
+              - column:
+                  name: name
+                  value: "Coke"
+
+        - insert:
+            tableName: tbl_product
+            columns:
+              - column:
+                  name: sku
+                  value: "CW002"
+              - column:
+                  name: name
+                  value: "Red bull"
+
+        - insert:
+            tableName: tbl_product
+            columns:
+              - column:
+                  name: sku
+                  value: "CW003"
+              - column:
+                  name: name
+                  value: "Gatorade"
+
+      rollback:
+        - delete:
+            tableName: tbl_product
+            where: "sku in ('CW001','CW002','CW003')"

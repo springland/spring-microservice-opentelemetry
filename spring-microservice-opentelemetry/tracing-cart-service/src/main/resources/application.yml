@@ -9,6 +9,7 @@ spring:
   application:
     name: cart-service
 
+
 server:
   port: 8080
 

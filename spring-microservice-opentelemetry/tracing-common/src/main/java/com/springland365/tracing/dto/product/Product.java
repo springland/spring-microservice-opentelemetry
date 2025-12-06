@@ -11,5 +11,5 @@ import lombok.*;
 public class Product {
     Long id ;
     String name ;
-    String description ;
+    String sku;
 }
