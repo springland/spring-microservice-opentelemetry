@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/v1/cart")
-public class CartController
+public class CartRestController
 {
 
 

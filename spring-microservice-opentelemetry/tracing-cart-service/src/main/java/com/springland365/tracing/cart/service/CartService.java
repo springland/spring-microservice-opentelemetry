@@ -1,5 +1,6 @@
 package com.springland365.tracing.cart.service;
 
+import com.springland365.tracing.cart.client.ProductClient;
 import com.springland365.tracing.dto.product.Product;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
@@ -10,15 +11,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class CartService {
 
-    @Value("${catalog-service-base-url}")
-    String catalogServiceBaseUrl;
 
-    protected final WebClient webClient ;
+
+    protected final ProductClient  productClient;
 
     protected final ObservationRegistry  registry;
     @Observed(name = "user.name",
@@ -44,19 +46,15 @@ public class CartService {
     }
     protected Product getProduct(Long id){
         log.info(" get product {}" , id);
-        Product product = webClient.get()
-                .uri(catalogServiceBaseUrl+"/v1/products/"+id)
-                .retrieve()
-                .bodyToMono(Product.class)
-                .block();
+        Product product = productClient.findById(id);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            log.error(e.getMessage() , e);
-        }
         return product ;
 
+    }
+
+    public List<Product> findAllProducts(){
+
+        return productClient.findAll() ;
     }
 
 }

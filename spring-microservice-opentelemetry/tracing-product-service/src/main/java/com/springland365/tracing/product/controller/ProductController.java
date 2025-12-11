@@ -24,13 +24,16 @@ public class ProductController {
     @GetMapping("/{id}")
     public Optional<Product> findProduct(@PathVariable(name="id")  Long id){
 
-        log.info("Find product");
+        log.info("Find product by id {}" , id);
         return  service.findProduct(id);
     }
 
     @GetMapping()
     public List<Product> findAll(){
-        return Collections.emptyList();
+
+        log.info("Find all products");
+        return this.service.findAllProducts();
+
     }
 
 }

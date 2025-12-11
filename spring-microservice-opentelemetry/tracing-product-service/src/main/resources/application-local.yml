@@ -1,0 +1,7 @@
+server:
+  port: 8090
+
+otlp-server-url: http://localhost:4318
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
