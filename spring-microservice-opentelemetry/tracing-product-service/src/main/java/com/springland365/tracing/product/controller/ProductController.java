@@ -2,6 +2,7 @@ package com.springland365.tracing.product.controller;
 
 import com.springland365.tracing.dto.product.Product;
 import com.springland365.tracing.product.service.ProductService;
+import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ public class ProductController {
     protected final ProductService  service ;
 
     @GetMapping("/{id}")
+    @Timed("com.springland365.tracing.product.findProduct")
     public Optional<Product> findProduct(@PathVariable(name="id")  Long id){
 
         log.info("Find product by id {}" , id);

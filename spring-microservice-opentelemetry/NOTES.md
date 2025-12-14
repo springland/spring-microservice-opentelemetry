@@ -12,3 +12,17 @@
 
 或者整包都打：
 -Dotel.instrumentation.methods.include=com.springland365.tracing.cart.service.*[*]
+
+metrics
+
+query with tags
+http://localhost:8090/actuator/metrics/jvm.memory.used?tag=area:heap
+
+Resigering custom tags
+https://docs.spring.io/spring-boot/3.5/reference/actuator/metrics.html#actuator.metrics.registering-custom
+
+cart service and product service have app_name common custom tag
+
+promethus  url
+
+http://localhost:8090/actuator/prometheus

@@ -9,16 +9,35 @@ server:
   port: 8080
 
 management:
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  metrics:
+    tags:
+      app_name : ${spring.application.name}
+    enabled: true
+    distribution:
+      percentiles:
+        com.springland365.tracing: 0.99, 0.95 , 0.9, 0.5
+
   tracing:
     sampling:
       probability: 1.0   # 原型环境先全量采样
   otlp:
     tracing:
       endpoint: ${otlp-server-url}/v1/traces
-
-    metrics:
       export:
         url: ${otlp-server-url}/v1/metrics
+
+
+
+
+
+
+
 
 spring:
   application:

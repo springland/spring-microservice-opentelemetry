@@ -16,15 +16,28 @@ server:
 product-service-base-url: http://product-service:8080
 
 management:
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  metrics:
+    enabled: true
+    tags:
+      app_name : ${spring.application.name}
+
   tracing:
     sampling:
       probability: 1.0   # 原型环境先全量采样
+
 
   otlp:
     tracing:
       endpoint: ${otlp-server-url}/v1/traces
 
     metrics:
+      enable: true
       export:
         url: ${otlp-server-url}/v1/metrics
 
