@@ -33,7 +33,7 @@ public class CartMVCController {
 
     }
 
-    @ModelAttribute("cartItems")
+    @ModelAttribute("cartItemsMap")
     public Map<Long , CartItem> cartItems() {
         return new LinkedHashMap<>();
     }
@@ -55,12 +55,12 @@ public class CartMVCController {
 
     @PostMapping("/cart/add")
     public String addItem(@RequestParam("productId") Long productId ,
-                          @ModelAttribute("cartItems") Map<Long , CartItem> cartItems,
+                          @ModelAttribute("cartItemsMap") Map<Long , CartItem> cartItemsMap,
                           Model model){
         model.addAttribute("products" ,getProducts());
 
-        addItem(productId , cartItems);
-        model.addAttribute("items" , cartItems);
+        List<CartItem> items = addItem(productId , cartItemsMap);
+        model.addAttribute("items" , items);
         return "index" ;
 
     }
@@ -77,6 +77,8 @@ public class CartMVCController {
         );
 
         cartItem.setQty(cartItem.getQty()+1);
+        cartItemMap.put(productId , cartItem);
+        log.debug(" add  " , cartItem);
         return cartItemMap.entrySet().stream().map( e -> e.getValue()).toList();
     }
 

@@ -53,7 +53,7 @@
             </thead>
             <tbody>
             <tr th:each="item : ${items}">
-                <td th:text="${item.name}">Product Name</td>
+                <td th:text="${item.product.name}">Product Name</td>
                 <!--
                 <td th:text="${item.quantity}">1</td>
                 <td th:text="${#numbers.formatDecimal(item.price, 1, 'POINT', 2, 'NONE')}">
