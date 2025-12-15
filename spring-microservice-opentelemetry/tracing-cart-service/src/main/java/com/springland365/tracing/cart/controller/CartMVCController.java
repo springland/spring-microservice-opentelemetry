@@ -3,6 +3,7 @@ package com.springland365.tracing.cart.controller;
 import com.springland365.tracing.cart.model.CartItem;
 import com.springland365.tracing.cart.service.CartService;
 import com.springland365.tracing.dto.product.Product;
+import io.micrometer.core.annotation.Timed;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -54,6 +55,7 @@ public class CartMVCController {
 
 
     @PostMapping("/cart/add")
+    @Timed(value="cart-service.add-item")
     public String addItem(@RequestParam("productId") Long productId ,
                           @ModelAttribute("cartItemsMap") Map<Long , CartItem> cartItemsMap,
                           Model model){

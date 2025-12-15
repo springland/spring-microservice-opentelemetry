@@ -44,8 +44,9 @@
             <thead class="table-dark">
             <tr>
                 <th>Product</th>
-                <!--
+
                 <th style="width: 80px;">Qty</th>
+                <!--
                 <th style="width: 120px;">Price</th>
                 <th style="width: 150px;">Subtotal</th>
                 -->
@@ -54,8 +55,9 @@
             <tbody>
             <tr th:each="item : ${items}">
                 <td th:text="${item.product.name}">Product Name</td>
+
+                <td th:text="${item.qty}">1</td>
                 <!--
-                <td th:text="${item.quantity}">1</td>
                 <td th:text="${#numbers.formatDecimal(item.price, 1, 'POINT', 2, 'NONE')}">
                     0.00
                 </td>

@@ -23,6 +23,13 @@ https://docs.spring.io/spring-boot/3.5/reference/actuator/metrics.html#actuator.
 
 cart service and product service have app_name common custom tag
 
+
+@Timed
+
+Cart service is using annotation , cart-service.add-item does not show up until it is hit first time
+
+Product service is using programatic way
+
 promethus  url
 
 http://localhost:8090/actuator/prometheus
