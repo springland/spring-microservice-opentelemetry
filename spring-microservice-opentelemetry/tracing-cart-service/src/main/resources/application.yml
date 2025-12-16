@@ -26,7 +26,19 @@ management:
     enabled: true
     tags:
       app_name : ${spring.application.name}
+    distribution:
+      # https://docs.micrometer.io/micrometer/reference/concepts/histogram-quantiles.html#page-title
 
+
+      # This is called client side percentile , calcuated by spring boot instance
+      # not aggregated from multiple instances
+      #
+      percentiles:
+        cart-service.add-item: 0.99 , 0.95 , 0.90 , 0.80, 0.50
+
+      # This will be aggregated by monitoring  system
+      percentiles-histogram:
+        cart-service.add-item: true
   tracing:
     sampling:
       probability: 1.0   # 原型环境先全量采样
