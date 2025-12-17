@@ -33,3 +33,6 @@ Product service is using programatic way
 promethus  url
 
 http://localhost:8090/actuator/prometheus
+
+jager 
+http://localhost:16686

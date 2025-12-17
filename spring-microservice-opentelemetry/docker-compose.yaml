@@ -36,5 +36,20 @@ services:
 
       # 如果你只想用 OTLP，可以不用改其他配置
 
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+
 volumes:
   pg_data:
