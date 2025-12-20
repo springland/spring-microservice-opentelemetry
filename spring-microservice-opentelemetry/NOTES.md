@@ -36,3 +36,24 @@ http://localhost:8090/actuator/prometheus
 
 jager 
 http://localhost:16686
+
+
+Actually there is an easy confusion. It can be done by either spring boot - AOP or java agent - instrument
+when agent is used it does not need spring config
+
+agent is controlled by environment variables instead of spring config
+
+OTEL_TRACES_EXPORTER=none
+OTEL_LOGS_EXPORTER=none
+
+Sample query peromethues
+List top 20 by the job otel-collector
+topk(20, count by (__name__)({job="otel-collector"}))
+
+List all buckets in histogram 
+default_db_client_connections_create_time_milliseconds_bucket
+query a specific bucket 
+default_db_client_connections_create_time_milliseconds_bucket{le="500.0"}
+
+Grafana 
+default_jvm_memory_used_bytes{area="heap"}

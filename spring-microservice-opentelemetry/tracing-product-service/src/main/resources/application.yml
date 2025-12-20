@@ -1,4 +1,4 @@
-otlp-server-url: http://jaeger:4318
+otlp-server-url: http://otel-collector:4318
 
 otel:
   logs:
@@ -29,9 +29,10 @@ management:
   otlp:
     tracing:
       endpoint: ${otlp-server-url}/v1/traces
+      enabled: false
+    metrics:
       export:
         url: ${otlp-server-url}/v1/metrics
-
 
 
 
