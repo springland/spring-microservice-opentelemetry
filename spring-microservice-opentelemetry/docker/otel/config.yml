@@ -8,7 +8,9 @@ receivers:
 
 exporters:
 
-
+  debug:
+#    verbosity: detailed
+    verbosity: normal
   # Data sources: metrics
   prometheus:
     endpoint: 0.0.0.0:8889
@@ -36,7 +38,9 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [otlp/jaeger]
+#  This logs trace in otlp collector as well
+      exporters: [debug, otlp/jaeger]
+#      exporters: [otlp/jaeger]
     metrics:
       receivers: [otlp]
       exporters: [prometheus]
