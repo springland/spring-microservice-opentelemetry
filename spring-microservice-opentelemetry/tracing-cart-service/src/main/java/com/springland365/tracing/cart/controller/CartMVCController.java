@@ -17,7 +17,7 @@ import java.util.*;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@SessionAttributes("cartItems")
+@SessionAttributes("cartItemsMap")
 public class CartMVCController {
 
 
@@ -42,9 +42,10 @@ public class CartMVCController {
     public String index(Model model){
 
 
-
+        List<Product> products = getProducts();
         model.addAttribute("items" , Collections.emptyList());
-        model.addAttribute("products" ,getProducts());
+        model.addAttribute("products" ,products);
+        model.addAttribute("selectedProductId" , products.getFirst().getId());
         return "index" ;
     }
 
@@ -63,6 +64,7 @@ public class CartMVCController {
 
         List<CartItem> items = addItem(productId , cartItemsMap);
         model.addAttribute("items" , items);
+        model.addAttribute("selectedProductId" , productId);
         return "index" ;
 
     }

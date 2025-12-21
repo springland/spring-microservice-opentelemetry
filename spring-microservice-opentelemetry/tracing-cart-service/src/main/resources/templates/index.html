@@ -27,7 +27,7 @@
                     th:value="${p.id}"
                     th:text="${p.name}"
 
-                    th:selected="${iterStat.index == 0}">
+                    th:selected="${selectedProductId != null and p.id == selectedProductId}">
             </option>
         </select>
 
