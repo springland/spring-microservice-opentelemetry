@@ -36,6 +36,15 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
 
+  tempo:
+    image: grafana/tempo:latest
+    command: [ "-config.file=/etc/tempo.yml" ]
+    volumes:
+      - ./docker/tempo/config.yml:/etc/tempo.yml
+
+    ports:
+      - "3200" # tempo
+      - "4317" # otlp grpc
 
   grafana:
     image: grafana/grafana
