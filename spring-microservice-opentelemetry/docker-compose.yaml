@@ -14,12 +14,15 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
 
-  #jaeger:
-  #  image: jaegertracing/jaeger:2.0
-  #  container_name: jaeger
-  #  restart: always
-  #  ports:
-  #    - "16686:16686"   # UI
+  jaeger:
+    image: jaegertracing/jaeger
+    #image: jaegertracing/all-in-one
+    container_name: jaeger
+    restart: always
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+    - "16686:16686"   # UI
 
 
   prometheus:

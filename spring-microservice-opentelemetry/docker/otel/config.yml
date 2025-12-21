@@ -19,9 +19,10 @@ exporters:
 #    endpoint: http://zipkin.example.com:9411/api/v2/spans
 
   # Data sources: traces
-#  otlp/jaeger:
-#    endpoint: jaeger-jaeger:4317
-
+  otlp/jaeger:
+    endpoint: jaeger:4317
+    tls:
+      insecure: true
 extensions:
   health_check:
     endpoint: 0.0.0.0:13133
@@ -33,9 +34,9 @@ extensions:
 service:
   extensions: [health_check, pprof, zpages]
   pipelines:
-#    traces:
-#      receivers: [otlp]
-#      exporters: [otlp]
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/jaeger]
     metrics:
       receivers: [otlp]
       exporters: [prometheus]
