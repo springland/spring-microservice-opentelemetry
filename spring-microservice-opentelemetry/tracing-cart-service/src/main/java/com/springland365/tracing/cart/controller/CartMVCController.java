@@ -32,6 +32,13 @@ public class CartMVCController {
                 p ->  productMap.put(p.getId() , p)
         );
 
+        Product unknownProduct = Product.builder()
+                .id(-1L)
+                .name("Unknown")
+                        .build();
+
+        products.add(unknownProduct);
+
     }
 
     @ModelAttribute("cartItemsMap")
