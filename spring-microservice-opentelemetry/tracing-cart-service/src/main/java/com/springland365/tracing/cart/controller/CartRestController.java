@@ -23,7 +23,7 @@ public class CartRestController
     public Product addItem(@PathVariable(name = "id")  Long  id){
 
         log.info(" add product {}" , id);
-        return cartService.addItem(id);
+        return cartService.findProductById(id);
     }
 
 }

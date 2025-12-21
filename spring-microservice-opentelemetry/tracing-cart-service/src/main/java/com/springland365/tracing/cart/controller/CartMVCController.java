@@ -61,7 +61,7 @@ public class CartMVCController {
                           @ModelAttribute("cartItemsMap") Map<Long , CartItem> cartItemsMap,
                           Model model){
         model.addAttribute("products" ,getProducts());
-
+        cartService.findProductById(productId);
         List<CartItem> items = addItem(productId , cartItemsMap);
         model.addAttribute("items" , items);
         model.addAttribute("selectedProductId" , productId);

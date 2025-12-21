@@ -7,9 +7,7 @@ import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.annotation.Observed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -24,10 +22,10 @@ public class CartService {
 
     protected final ObservationRegistry  registry;
     @Observed(name = "user.name",
-            contextualName = "cart-service.addItem",
+            contextualName = "cart-service.findProductById",
             lowCardinalityKeyValues = {"userType", "userType2"})
 
-    public Product addItem(  Long  id){
+    public Product findProductById(Long  id){
 
         log.info(" add product {}" , id);
         Product product = getProductObserved(id);

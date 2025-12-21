@@ -13,7 +13,7 @@ public interface ProductClient {
 
 
     @GetExchange("/{id}")
-    Product findById(@PathVariable Long id);
+    Product findById(@PathVariable("id") Long id);
 
     @GetExchange
     List<Product> findAll();

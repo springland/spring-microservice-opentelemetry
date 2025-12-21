@@ -15,8 +15,8 @@ public class ClientConfig {
     @Value("${product-service-base-url}")
     String productServiceBaseUrl;
     @Bean
-    public ProductClient  productClient(){
-        WebClient webClient = WebClient.builder()
+    public ProductClient  productClient(WebClient.Builder webClientBuilder){
+        WebClient webClient = webClientBuilder
                 .baseUrl(productServiceBaseUrl)
                 .build();
 
